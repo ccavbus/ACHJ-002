@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ACHJ-002</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body>
+    <div id="movie" align="center">
+        <video id="video"  width=85% height="580" controls poster="./img/pic0.jpg"></video>
+        <script>
+        var video = document.getElementById('video');
+        var videoSrc = './res/index.m3u8';
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+        }
+        </script>
+    </div>
+</body>
+
+</html>
